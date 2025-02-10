@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-profile-deployment
+  labels:
+    app: spring-profile
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spring-profile
+  template:
+    metadata:
+      labels:
+        app: spring-profile
+    spec:
+      containers:
+        - name: profile-service
+          image: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo/clouduser/project:latest"
