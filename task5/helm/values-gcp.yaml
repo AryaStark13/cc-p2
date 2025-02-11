@@ -3,12 +3,72 @@ global:
 
 chat:
 # TODO: add environment-specific values if any
+profileEndpoints: "4.157.99.175" # This value should be used in configMap-chat.yaml
+releaseName: "spring-chat"
+replicaCount: 3
 repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+image: "clouduser/group-chat"
+tag: "1.0.1"
+# TODO: Specify values used in service.yaml
+service: 
+  type: "NodePort"
+  port: 80
+  targetPort: 8080
+mysql:
+  host: "mysql-chat.default.svc.cluster.local"
+  user: "YXJpaGFudHNoZXRo"
+  password: "RXRlcm5pYUAxMjM="
+  port: "3306"
+hpa:
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
+  cpuRequest: 200m
 
 login:
 # TODO: add environment-specific values if any
+releaseName: "spring-login"
+replicaCount: 3
 repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+image: "clouduser/login"
+tag: "1.0.0"
+chatEndpoint: 34.148.191.226
+# TODO: Specify values used in service.yaml
+service: 
+  type: "NodePort"
+  port: 80
+  targetPort: 8080
+mysql:
+  host: "mysql-login.default.svc.cluster.local"
+  user: "YXJpaGFudHNoZXRo"
+  password: "RXRlcm5pYUAxMjM="
+  port: "3306"
+hpa:
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
+  cpuRequest: 200m
+
 
 profile:
 # TODO: add environment-specific values if any
+releaseName: "spring-profile"
+replicaCount: 3
 repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+image: "clouduser/project"
+tag: "1.0.1"
+# TODO: Specify values used in service.yaml
+service: 
+  type: "NodePort"
+  port: 80
+  targetPort: 8080
+mysql:
+  host: "mysql-profile.default.svc.cluster.local"
+  user: "YXJpaGFudHNoZXRo"
+  password: "RXRlcm5pYUAxMjM="
+  port: "3306"
+hpa:
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
+  cpuRequest: 200m
