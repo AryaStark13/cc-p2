@@ -47,7 +47,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: php-apache
+    name: "{{ .Values.chat.releaseName }}-deployment"
   minReplicas: {{ .Values.chat.hpa.minReplicas }}
   maxReplicas: {{ .Values.chat.hpa.maxReplicas }}
   targetCPUUtilizationPercentage: {{ .Values.chat.hpa.targetCPUUtilizationPercentage }}

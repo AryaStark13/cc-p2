@@ -47,7 +47,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: php-apache
+    name: "{{ .Values.login.releaseName }}-deployment"
   minReplicas: {{ .Values.login.hpa.minReplicas }}
   maxReplicas: {{ .Values.login.hpa.maxReplicas }}
   targetCPUUtilizationPercentage: {{ .Values.login.hpa.targetCPUUtilizationPercentage }}
