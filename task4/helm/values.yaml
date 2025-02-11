@@ -27,7 +27,7 @@ chat:
   releaseName: "spring-chat"
   replicaCount: 3
   repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
-  image: "clouduser/project"
+  image: "clouduser/group-chat"
   tag: "1.0.1"
   # TODO: Specify values used in service.yaml
   service: 

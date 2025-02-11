@@ -8,4 +8,4 @@ COPY src ./src
 RUN mvn clean install
 
 # Running the project
-CMD ["java", "-jar", "target/groupchat-embedded-0.1.0.jar"]
+CMD ["java", "-jar", "target/groupchat-0.1.0.jar"]
