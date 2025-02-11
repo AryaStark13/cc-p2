@@ -47,7 +47,7 @@ login:
   repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
   image: "clouduser/login"
   tag: "1.0.0"
-  chatEndpoint: 35.229.99.46
+  chatEndpoint: 34.148.191.226
   # TODO: Specify values used in service.yaml
   service: 
     type: "NodePort"
