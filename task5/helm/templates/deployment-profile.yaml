@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.profile.releaseName }}-deployment"
+  labels:
+    app: "{{ .Values.profile.releaseName }}"
+spec:
+  replicas: {{ .Values.profile.replicaCount }}
+  selector:
+    matchLabels:
+      app: "{{ .Values.profile.releaseName }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.profile.releaseName }}"
+    spec:
+      containers:
+        - name: "{{ .Values.profile.releaseName }}"
+          image: "{{ .Values.profile.repository }}/{{ .Values.profile.image }}:{{ .Values.profile.tag }}"
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.profile.releaseName }}-config"
+          env:
+            - name: MYSQL_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: "profile-secret"
+                  key: mysql-username
+            - name: MYSQL_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "profile-secret"
+                  key: mysql-password

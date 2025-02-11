@@ -1,0 +1,75 @@
+weCloud:
+  imageRegistry:
+    gcp: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+
+profile:
+  # TODO: Specify values used in profile service manifests
+  # TODO: Specify values used in deployment.yaml
+  releaseName: "spring-profile"
+  replicaCount: 3
+  repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+  image: "clouduser/project"
+  tag: "1.0.1"
+  # TODO: Specify values used in service.yaml
+  service: 
+    type: "NodePort"
+    port: 80
+    targetPort: 8080
+  mysql:
+    host: "mysql-profile.default.svc.cluster.local"
+    user: "YXJpaGFudHNoZXRo"
+    password: "RXRlcm5pYUAxMjM="
+    port: "3306"
+
+chat:
+  # TODO: Specify values used in chat service manifests
+  profileEndpoints: "spring-profile-service.default.svc.cluster.local" # This value should be used in configMap-chat.yaml
+  releaseName: "spring-chat"
+  replicaCount: 3
+  repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+  image: "clouduser/group-chat"
+  tag: "1.0.1"
+  # TODO: Specify values used in service.yaml
+  service: 
+    type: "NodePort"
+    port: 80
+    targetPort: 8080
+  mysql:
+    host: "mysql-chat.default.svc.cluster.local"
+    user: "YXJpaGFudHNoZXRo"
+    password: "RXRlcm5pYUAxMjM="
+    port: "3306"
+
+login:
+  # TODO: Specify values used in login service manifests
+  releaseName: "spring-login"
+  replicaCount: 3
+  repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+  image: "clouduser/login"
+  tag: "1.0.0"
+  chatEndpoint: 34.148.191.226
+  # TODO: Specify values used in service.yaml
+  service: 
+    type: "NodePort"
+    port: 80
+    targetPort: 8080
+  mysql:
+    host: "mysql-login.default.svc.cluster.local"
+    user: "YXJpaGFudHNoZXRo"
+    password: "RXRlcm5pYUAxMjM="
+    port: "3306"
+
+# Below are the values used in the redis service
+# DO NOT MODIFY
+redis:
+  image: "bitnami/redis:4.0.11-r6"
+  host: "redis-service"
+  password: "SuperSecretRedisPassword"
+  passwordSecret: "redis-secret"
+  passwordKey: "REDIS_PASSWORD"
+  port: "6379"
+  containerPort: 6379
+  topic: "/topic/messages"
+  service:
+    port: 6379
+    targetPort: 6379
