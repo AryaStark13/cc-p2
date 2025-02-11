@@ -33,10 +33,10 @@ spec:
             - name: MYSQL_DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: "{{ .Values.profile.releaseName }}-secret"
+                  name: "profile-secret"
                   key: MYSQL_DB_USER
             - name: MYSQL_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: "{{ .Values.profile.releaseName }}-secret"
+                  name: "profile-secret"
                   key: MYSQL_DB_PASSWORD
