@@ -1,1 +1,35 @@
-# TODO: Implement the deployment configuration for the login service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.login.releaseName }}-deployment"
+  labels:
+    app: "{{ .Values.login.releaseName }}"
+spec:
+  replicas: {{ .Values.login.replicaCount }}
+  selector:
+    matchLabels:
+      app: "{{ .Values.login.releaseName }}"
+  template:
+    metadata:
+      labels:
+        app: "{{ .Values.login.releaseName }}"
+    spec:
+      containers:
+        - name: "{{ .Values.login.releaseName }}"
+          image: "{{ .Values.login.repository }}/{{ .Values.login.image }}:{{ .Values.login.tag }}"
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.login.releaseName }}-config"
+          env:
+            - name: MYSQL_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: "login-secret"
+                  key: mysql-username
+            - name: MYSQL_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: "login-secret"
+                  key: mysql-password
