@@ -24,7 +24,7 @@ profile:
 chat:
   # TODO: Specify values used in chat service manifests
   profileEndpoints: "spring-profile-service.default.svc.cluster.local" # This value should be used in configMap-chat.yaml
-  releaseName: "mysql-chat"
+  releaseName: "spring-chat"
   replicaCount: 3
   repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
   image: "clouduser/project"
