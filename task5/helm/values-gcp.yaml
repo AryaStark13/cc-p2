@@ -1,0 +1,14 @@
+global:
+    environment: gcp
+
+chat:
+# TODO: add environment-specific values if any
+repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+
+login:
+# TODO: add environment-specific values if any
+repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+
+profile:
+# TODO: add environment-specific values if any
+repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"

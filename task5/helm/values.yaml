@@ -1,6 +1,7 @@
 weCloud:
   imageRegistry:
     gcp: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
+    azure: "4ad507cd8da14ee4b1eccbf83ae8637a.azurecr.io"
 
 profile:
   # TODO: Specify values used in profile service manifests
@@ -28,7 +29,7 @@ profile:
 
 chat:
   # TODO: Specify values used in chat service manifests
-  profileEndpoints: "spring-profile-service.default.svc.cluster.local" # This value should be used in configMap-chat.yaml
+  profileEndpoints: "4.157.99.175" # This value should be used in configMap-chat.yaml
   releaseName: "spring-chat"
   replicaCount: 3
   repository: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo"
