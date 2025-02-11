@@ -3,12 +3,12 @@ global:
 
 chat:
 # TODO: add environment-specific values if any
-    repository: "4ad507cd8da14ee4b1eccbf83ae8637a.azurecr.io"
+  repository: "4ad507cd8da14ee4b1eccbf83ae8637a.azurecr.io"
 
 login:
 # TODO: add environment-specific values if any
-    repository: "4ad507cd8da14ee4b1eccbf83ae8637a.azurecr.io"
+  repository: "4ad507cd8da14ee4b1eccbf83ae8637a.azurecr.io"
 
 profile:
 # TODO: add environment-specific values if any
-    repository: "4ad507cd8da14ee4b1eccbf83ae8637a.azurecr.io"
+  repository: "4ad507cd8da14ee4b1eccbf83ae8637a.azurecr.io"
