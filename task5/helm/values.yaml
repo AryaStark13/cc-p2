@@ -20,6 +20,11 @@ profile:
     user: "YXJpaGFudHNoZXRo"
     password: "RXRlcm5pYUAxMjM="
     port: "3306"
+  hpa:
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
+    cpuRequest: 200m
 
 chat:
   # TODO: Specify values used in chat service manifests
@@ -39,6 +44,11 @@ chat:
     user: "YXJpaGFudHNoZXRo"
     password: "RXRlcm5pYUAxMjM="
     port: "3306"
+  hpa:
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
+    cpuRequest: 200m
 
 login:
   # TODO: Specify values used in login service manifests
@@ -58,6 +68,11 @@ login:
     user: "YXJpaGFudHNoZXRo"
     password: "RXRlcm5pYUAxMjM="
     port: "3306"
+  hpa:
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 50
+    cpuRequest: 200m
 
 # Below are the values used in the redis service
 # DO NOT MODIFY
