@@ -19,24 +19,17 @@ spec:
           image: "{{ .Values.profile.repository }}/{{ .Values.profile.image }}:{{ .Values.profile.tag }}"
           ports:
             - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: "{{ .Values.profile.releaseName }}-config"
           env:
-            - name: MYSQL_DB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: "{{ .Values.profile.releaseName }}-config"
-                  key: MYSQL_DB_HOST
-            - name: MYSQL_DB_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: "{{ .Values.profile.releaseName }}-config"
-                  key: MYSQL_DB_PORT
             - name: MYSQL_DB_USER
               valueFrom:
                 secretKeyRef:
                   name: "profile-secret"
-                  key: MYSQL_DB_USER
+                  key: mysql-username
             - name: MYSQL_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: "profile-secret"
-                  key: MYSQL_DB_PASSWORD
+                  key: mysql-password
