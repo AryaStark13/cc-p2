@@ -17,6 +17,6 @@ profile:
   # TODO: Specify values for MySQL environment variables
   mysql:
     host: "mysql-profile.default.svc.cluster.local"
-    user: YXJpaGFudHNoZXRo
-    password: RXRlcm5pYUAxMjM=
+    user: "YXJpaGFudHNoZXRo"
+    password: "RXRlcm5pYUAxMjM="
     port: "3306"
