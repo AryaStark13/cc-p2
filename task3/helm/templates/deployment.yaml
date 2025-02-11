@@ -17,3 +17,25 @@ spec:
       containers:
         - name: {{ .Values.profile.releaseName }}
           image: {{ .Values.profile.repository }}/{{ .Values.profile.image }}:{{ .Values.profile.tag }}
+        env:
+        - name: MYSQL_DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: "{{ .Values.profile.releaseName }}-config"
+              key: MYSQL_DB_HOST
+        - name: MYSQL_DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: "{{ .Values.profile.releaseName }}-config"
+              key: MYSQL_DB_PORT
+        - name: MYSQL_DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: "{{ .Values.profile.releaseName }}-config"
+              key: MYSQL_DB_USER
+        - name: MYSQL_DB_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              name: "{{ .Values.profile.releaseName }}-config"
+              key: MYSQL_DB_PASSWORD"
+
