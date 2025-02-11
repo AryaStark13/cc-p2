@@ -2,9 +2,9 @@
     "referenceGuide" : "Cite all the reference sources in the required format. Proper citations will help you avoid unnecessary trouble. Read JSON grammar from Internet if needed.",
     "websites":[  
         {  
-            "title":"<title of the page>",
-            "url":"<url>",
-            "code":"<in which code you use the snippet or the idea>",
+            "title":"How to Use Environment Variables with Helm Charts",
+            "url":"https://phoenixnap.com/kb/helm-environment-variables",
+            "code":"deployment.yaml",
             "description":"<additional information you find it necessary to provide>"
         }
     ],
