@@ -16,4 +16,4 @@ spec:
     spec:
       containers:
         - name: profile-service
-          image: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo/clouduser/project:1.0.0"
+          image: "us-east1-docker.pkg.dev/gcp-docker-kubernetes-450517/task2-artifact-repo/clouduser/project:1.0.1"
