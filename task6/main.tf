@@ -103,7 +103,7 @@ resource "azurerm_frontdoor" "frontdoor" {
   routing_rule {
     name               = "loginprofilerouting"
     # TODO: add more configurations
-    accepted_protocols = "Http"
+    accepted_protocols = [ "Http" ]
     patterns_to_match  = ["/login", "/profile"]
     forwarding_configuration {
       forwarding_protocol = "HttpOnly"
@@ -116,7 +116,7 @@ resource "azurerm_frontdoor" "frontdoor" {
   routing_rule {
     name               = "chatrouting"
     # TODO: add more configurations
-    accepted_protocols = "Http"
+    accepted_protocols = [ "Http" ]
     patterns_to_match  = ["/chat", "/chat/*"]
     forwarding_configuration {
       forwarding_protocol = "HttpOnly"
